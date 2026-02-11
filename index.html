@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raúl Vargas Zalazar — Pro Enhanced Nutrition</title>
+  <meta name="description" content="Entrenamiento de fuerza, aumento de masa muscular, pérdida de grasa, nutrición y salud hormonal. Pro Enhanced Nutrition." />
+
+  <style>
+    :root{
+      /* ✅ Fondo un poco MÁS CLARO */
+      --bg0:#1a2240;
+      --bg1:#22305f;
+      --bg2:#2a3a74;
+
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,.72);
+
+      --line: rgba(255,255,255,.12);
+      --line2: rgba(255,255,255,.08);
+
+      --glass: rgba(255,255,255,.06);
+      --glass2: rgba(255,255,255,.09);
+      --glass3: rgba(255,255,255,.12);
+
+      --pink:#ff3ea5;
+      --pink2:#ff71c8;
+
+      --fire:#ff2a2a;
+      --fire2:#ff6a00;
+
+      --gold:#d8b25a;
+      --gold2:#f3df9b;
+      --gold3:#b98a2f;
+      --goldLine: rgba(216,178,90,.35);
+      --goldGlow: rgba(216,178,90,.14);
+
+      --shadow: 0 20px 60px rgba(0,0,0,.48);
+      --shadow2: 0 18px 45px rgba(0,0,0,.34);
+
+      --radius: 18px;
+      --radius2: 22px;
+      --max:1100px;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:var(--sans);
+      font-size:16.5px;
+      color:var(--text);
+
+      /* ✅ Glow un poco más intenso + fondo más claro */
+      background:
+        radial-gradient(980px 560px at 15% 0%, rgba(255,62,165,.33), transparent 62%),
+        radial-gradient(1100px 680px at 90% 10%, rgba(255,42,42,.28), transparent 64%),
+        radial-gradient(980px 560px at 40% 110%, rgba(216,178,90,.16), transparent 64%),
+        radial-gradient(980px 560px at 75% 115%, rgba(255,106,0,.16), transparent 67%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
+      min-height:100vh;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 74px}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      /* ✅ un toque más clara */
+      background: rgba(26,34,64,.64);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .nav:before{
+      content:"";
+      position:absolute;
+      left:0; right:0; top:0;
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(216,178,90,.50), transparent);
+      box-shadow: 0 0 18px rgba(216,178,90,.14);
+      pointer-events:none;
+    }
+
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:16px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      position:relative;
+    }
+
+    .brand{display:flex; align-items:center; gap:12px}
+
+    .badge{
+      width:46px; height:46px;
+      border-radius:16px;
+      display:grid; place-items:center;
+      font-family:var(--mono);
+      font-weight:900;
+      font-size:11px;
+      letter-spacing:.6px;
+      color:#fff;
+      background:
+        linear-gradient(135deg, rgba(255,62,165,.95), rgba(255,42,42,.85) 45%, rgba(255,106,0,.85));
+      box-shadow:
+        0 18px 35px rgba(255,62,165,.12),
+        0 14px 30px rgba(255,42,42,.10);
+      border:1px solid rgba(255,255,255,.14);
+      position:relative;
+    }
+    .badge:after{
+      content:"";
+      position:absolute; inset:-1px;
+      border-radius:16px;
+      border:1px solid rgba(216,178,90,.28);
+      pointer-events:none;
+      opacity:.9;
+      filter: blur(.15px);
+    }
+
+    .brand h1{font-size:16px; margin:0; letter-spacing:.2px}
+    .brand p{margin:0; font-size:13px; color:var(--muted)}
+
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      justify-content:flex-end;
+
+      /* ✅ Estaban en 3cm; los subimos 2cm → quedan en 1cm */
+      margin-top: 1cm;
+      margin-top: 38px; /* fallback aprox 1cm */
+    }
+
+    @media (max-width: 780px){
+      .links{ margin-top: 14px; }
+    }
+
+    .pill{
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      color:var(--text);
+      font-size:14px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease, background .14s ease;
+    }
+    .pill:hover{
+      border-color: rgba(216,178,90,.40);
+      box-shadow: 0 16px 34px rgba(0,0,0,.35);
+      background: rgba(255,255,255,.09);
+      transform: translateY(-1px);
+    }
+
+    .cta{
+      padding:11px 16px;
+      border-radius:999px;
+      border:1px solid rgba(216,178,90,.45);
+      background:
+        linear-gradient(135deg, rgba(255,62,165,.18), rgba(255,42,42,.12), rgba(255,106,0,.10));
+      box-shadow:
+        0 18px 40px rgba(255,42,42,.10),
+        0 14px 28px rgba(255,62,165,.10);
+      font-weight:900;
+      font-size:14px;
+      transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease, filter .14s ease;
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+    .cta:before{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(260px 120px at 20% 40%, rgba(216,178,90,.22), transparent 60%);
+      filter: blur(10px);
+      opacity:.75;
+      pointer-events:none;
+      z-index:0;
+    }
+    .cta:after{
+      content:"";
+      position:absolute;
+      top:-60%;
+      left:-30%;
+      width:60%;
+      height:220%;
+      background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(243,223,155,.18) 35%,
+        rgba(216,178,90,.28) 50%,
+        rgba(243,223,155,.18) 65%,
+        transparent 100%
+      );
+      transform: rotate(16deg);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .14s ease;
+      z-index:0;
+    }
+
+    @keyframes goldPulseBorder{
+      0%{
+        box-shadow:
+          0 26px 60px rgba(0,0,0,.55),
+          0 18px 34px rgba(255,42,42,.14),
+          0 0 0 1px rgba(216,178,90,.22),
+          0 0 16px rgba(216,178,90,.10);
+      }
+      100%{
+        box-shadow:
+          0 26px 60px rgba(0,0,0,.55),
+          0 18px 34px rgba(255,42,42,.14),
+          0 0 0 1px rgba(216,178,90,.34),
+          0 0 28px rgba(216,178,90,.18);
+      }
+    }
+
+    .cta:hover{
+      border-color: rgba(216,178,90,.72);
+      transform: translateY(-1px);
+      filter: saturate(1.05);
+      animation: goldPulseBorder 1.55s ease-in-out infinite alternate;
+    }
+    .cta:hover:after{ opacity:.9; }
+
+    @media (prefers-reduced-motion: reduce){
+      .cta, .pill, .btn{transition:none}
+      .cta:hover{animation:none}
+    }
+
+    .gold-stroke{
+      text-shadow:
+        0 0 0.6px rgba(216,178,90,.35),
+        0 0 14px rgba(216,178,90,.10),
+        0 12px 28px rgba(0,0,0,.55);
+    }
+    .gold-stroke-outline{
+      text-shadow:
+        -0.5px 0 rgba(216,178,90,.18),
+         0.5px 0 rgba(216,178,90,.18),
+         0 -0.5px rgba(216,178,90,.14),
+         0  0.5px rgba(216,178,90,.14),
+         0 0 18px rgba(216,178,90,.10),
+         0 12px 28px rgba(0,0,0,.55);
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.08));
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position:relative;
+    }
+    .card:after{
+      content:"";
+      position:absolute; inset:0;
+      border-radius: var(--radius2);
+      border:1px solid rgba(216,178,90,.22);
+      pointer-events:none;
+      opacity:.85;
+      mix-blend-mode: screen;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 220px at 15% 10%, rgba(255,62,165,.18), transparent 55%),
+        radial-gradient(700px 240px at 90% 20%, rgba(255,42,42,.14), transparent 60%),
+        radial-gradient(700px 240px at 20% 120%, rgba(216,178,90,.12), transparent 60%);
+      pointer-events:none;
+      opacity:.9;
+      filter: blur(10px);
+    }
+    .card > *{position:relative; z-index:1}
+
+    .hero{
+      padding:30px 0 16px;
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+
+    .hero-main{padding:26px}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.55px;
+      border-radius:999px;
+      padding:8px 10px;
+      border:1px solid rgba(216,178,90,.28);
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.90);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .kicker .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: linear-gradient(135deg, var(--gold2), var(--pink), var(--fire));
+      box-shadow: 0 0 0 4px rgba(216,178,90,.12);
+    }
+    .hero h2{
+      margin:16px 0 10px;
+      font-size:40px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    @media (max-width: 520px){ .hero h2{font-size:30px} }
+
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.7;
+      max-width: 74ch;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      color:var(--text);
+      font-weight:900;
+      display:inline-flex; gap:10px; align-items:center;
+      cursor:pointer;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease, background .14s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:hover{
+      border-color: rgba(216,178,90,.42);
+      box-shadow: var(--shadow2);
+      background: rgba(255,255,255,.09);
+      transform: translateY(-1px);
+    }
+    .btn.primary{
+      border-color: rgba(216,178,90,.50);
+      background:
+        linear-gradient(135deg, rgba(255,62,165,.18), rgba(255,42,42,.12), rgba(255,106,0,.10));
+      box-shadow:
+        0 18px 40px rgba(255,42,42,.10),
+        0 14px 28px rgba(216,178,90,.12);
+    }
+    .btn.primary:before{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(300px 140px at 20% 40%, rgba(216,178,90,.18), transparent 60%);
+      filter: blur(10px);
+      opacity:.75;
+      pointer-events:none;
+    }
+
+    .small{font-size:12px; color:var(--muted)}
+    .mono{font-family:var(--mono)}
+
+    .hero-side{padding:18px; display:flex; flex-direction:column; gap:12px}
+    .photo{
+      position:relative;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(216,178,90,.22);
+      background:
+        radial-gradient(800px 320px at 15% 20%, rgba(255,62,165,.26), transparent 55%),
+        radial-gradient(800px 320px at 85% 10%, rgba(255,42,42,.18), transparent 55%),
+        radial-gradient(700px 280px at 70% 85%, rgba(216,178,90,.16), transparent 60%),
+        linear-gradient(135deg, rgba(26,34,64,.62), rgba(34,48,95,.92));
+      min-height: 320px;
+      box-shadow: var(--shadow2);
+    }
+    .photo:after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(420px 160px at 75% 80%, rgba(255,106,0,.12), transparent 60%),
+        radial-gradient(420px 160px at 25% 30%, rgba(216,178,90,.14), transparent 60%);
+      pointer-events:none;
+      filter: blur(10px);
+      opacity:.9;
+    }
+    .photo .cap{
+      position:absolute; left:12px; bottom:12px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(216,178,90,.26);
+      background: rgba(255,255,255,.09);
+      font-weight:900;
+      box-shadow: 0 14px 26px rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .photo .ghost{
+      position:absolute; inset:0;
+      display:grid; place-items:center;
+      color: rgba(255,255,255,.92);
+      font-weight:900;
+      letter-spacing:.4px;
+      text-align:center;
+      padding:18px;
+      z-index:1;
+    }
+    .photo .ghost .big{
+      font-size:18px;
+      opacity:.95;
+      text-shadow: 0 10px 24px rgba(0,0,0,.55);
+    }
+    .photo .ghost .sub{
+      margin-top:8px;
+      font-size:12px;
+      opacity:.85;
+      font-family: var(--mono);
+      color: rgba(255,255,255,.82);
+    }
+
+    .mini{
+      padding:16px;
+      border:1px solid rgba(216,178,90,.22);
+      border-radius:18px;
+      background: rgba(255,255,255,.07);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .mini .t{font-size:12px; color:var(--muted); margin:0}
+    .mini .v{margin:10px 0 0; font-weight:900; line-height:1.35}
+
+    section{padding-top:26px}
+    .section-title{
+      display:flex; justify-content:space-between; align-items:flex-end; gap:14px;
+      margin: 18px 0 12px;
+    }
+    .section-title h3{
+      margin:0; font-size:20px;
+      display:inline-flex; align-items:center; gap:10px;
+    }
+    .section-title h3 .mark{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg, var(--gold2), var(--pink), var(--fire));
+      box-shadow: 0 0 0 5px rgba(216,178,90,.12);
+    }
+    .section-title p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; margin-top:14px}
+    .span-12{grid-column: span 12}
+    .span-8{grid-column: span 8}
+    .span-6{grid-column: span 6}
+    .span-4{grid-column: span 4}
+    @media (max-width: 900px){
+      .span-6,.span-4,.span-8{grid-column: span 12}
+    }
+
+    .item{
+      padding:14px; border-radius:16px;
+      border:1px solid rgba(216,178,90,.18);
+      background: rgba(255,255,255,.07);
+      box-shadow: 0 14px 26px rgba(0,0,0,.25);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .item h4{margin:0 0 6px; font-size:15px}
+    .item p{margin:0; color:var(--muted); font-size:13px; line-height:1.6}
+
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      font-size:12px;
+      border:1px solid rgba(216,178,90,.22);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.86);
+      font-family:var(--mono);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .service-card{
+      padding:18px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(216,178,90,.22);
+      background: rgba(255,255,255,.07);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      position:relative;
+      overflow:hidden;
+      transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease;
+    }
+    .service-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 240px at 20% 10%, rgba(255,62,165,.16), transparent 60%),
+        radial-gradient(700px 260px at 90% 20%, rgba(255,42,42,.12), transparent 62%),
+        radial-gradient(700px 260px at 15% 115%, rgba(216,178,90,.14), transparent 62%);
+      pointer-events:none;
+      filter: blur(12px);
+      opacity:.85;
+    }
+    .service-card > *{position:relative; z-index:1}
+    .service-card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(216,178,90,.40);
+      box-shadow: 0 28px 80px rgba(0,0,0,.58);
+    }
+    .service-card:hover:after{
+      content:"";
+      position:absolute; inset:-6px;
+      border-radius: var(--radius2);
+      box-shadow: 0 0 0 1px rgba(216,178,90,.22), 0 0 40px rgba(216,178,90,.10);
+      pointer-events:none;
+    }
+
+    .service-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .service-title{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-.2px;
+    }
+    .service-badge{
+      flex:0 0 auto;
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      font-family: var(--mono);
+      border:1px solid rgba(216,178,90,.30);
+      background:
+        linear-gradient(135deg, rgba(216,178,90,.18), rgba(255,62,165,.10), rgba(255,106,0,.08));
+      color: rgba(255,255,255,.92);
+      white-space:nowrap;
+    }
+    .service-desc{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(216,178,90,.26), transparent);
+      margin: 6px 0;
+    }
+    .service-sub{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(216,178,90,.18);
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .service-sub h5{
+      margin:0 0 6px;
+      font-size:13px;
+      letter-spacing:.1px;
+    }
+    .service-sub p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .form{display:grid; gap:10px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(216,178,90,.20);
+      background: rgba(255,255,255,.07);
+      color: var(--text);
+      outline:none;
+      font: inherit;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    textarea{min-height:120px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:rgba(238,242,255,.55)}
+    input:focus, textarea:focus{
+      border-color: rgba(216,178,90,.42);
+      box-shadow: 0 0 0 4px rgba(216,178,90,.12);
+    }
+
+    .footer{
+      margin-top:30px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-size:13px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+
+    .ig-float{
+      position: fixed;
+      right: 18px;
+      bottom: 90px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      z-index: 9999;
+
+      background: linear-gradient(135deg, var(--gold2), var(--pink), var(--fire2));
+      box-shadow:
+        0 16px 30px rgba(0,0,0,.30),
+        0 0 0 6px rgba(216,178,90,.10);
+      border:1px solid rgba(216,178,90,.18);
+    }
+    .ig-float svg{ width:28px; height:28px; fill:white; }
+
+    .wa-float{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      z-index: 9999;
+
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      box-shadow:
+        0 16px 30px rgba(0,0,0,.30),
+        0 0 0 6px rgba(37,211,102,.10);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .wa-float svg{ width: 28px; height: 28px; fill: #fff; }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="badge">PRO<br>EHN</div>
+        <div>
+          <h1>Raúl Vargas Zalazar</h1>
+          <p>Pro Enhanced Nutrition · Fuerza · Hipertrofia · Pérdida de grasa</p>
+        </div>
+      </div>
+
+      <div class="links">
+        <a class="pill" href="#sobre">Sobre mí</a>
+        <a class="pill" href="#servicios">Servicios</a>
+        <a class="pill" href="#contacto">Contacto</a>
+        <a class="pill" href="https://www.instagram.com/raulvargas_proehn" target="_blank" rel="noopener">Instagram</a>
+        <a class="cta" href="https://wa.me/5218132216529" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="hero">
+      <div class="card hero-main">
+        <div class="kicker"><span class="dot"></span> Pro Enhanced Nutrition · Planes personalizados</div>
+
+        <h2 class="gold-stroke-outline">Entrenamiento + nutrición para ganar músculo, perder grasa y mejorar tu salud metabólica y hormonal.</h2>
+
+        <p>
+          Enfoque directo y medible: <strong>evaluación → plan individualizado → seguimiento → ajustes</strong>.
+          Ideal si eres una persona comprometida, responsable y lista para trabajar con estructura (sin “humo”).
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#servicios">Ver servicios</a>
+          <a class="btn"
+             href="https://wa.me/5218132216529?text=Hola%20Ra%C3%BAl%2C%20quiero%20una%20evaluaci%C3%B3n%20para%20masa%20muscular%20/%20p%C3%A9rdida%20de%20grasa%20/%20salud%20hormonal.%20Mis%20datos%3A%20edad%2C%20estatura%2C%20peso%2C%20d%C3%ADas%20que%20entreno%20y%20objetivo."
+             target="_blank" rel="noopener">
+            Agendar evaluación (WhatsApp)
+          </a>
+        </div>
+
+        <p class="small" style="margin-top:14px">
+          <span class="mono">Correo:</span>
+          <a href="mailto:Pro.Enhanced.Nutrition@gmail.com">Pro.Enhanced.Nutrition@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="card hero-side">
+        <div class="photo">
+          <!-- Si vas a usar foto:
+          <img src="TU_FOTO.jpg" alt="Raúl Vargas Zalazar" style="width:100%;height:320px;object-fit:cover;display:block;">
+          -->
+          <div class="ghost">
+            <div>
+              <div class="big gold-stroke">Raúl Vargas · PRO EHN</div>
+              <div class="sub">Atención personalizada · métricas · seguimiento</div>
+            </div>
+          </div>
+          <div class="cap">Pro Enhanced Nutrition</div>
+        </div>
+
+        <div class="mini">
+          <p class="t">Servicios principales</p>
+          <p class="v">Masa muscular · Pérdida de grasa · Salud hormonal</p>
+          <p class="v">Hábitos y relación con la comida (adherencia real)</p>
+          <p class="v">Suplementación puntual y justificada (según objetivo)</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="sobre">
+      <div class="section-title">
+        <h3 class="gold-stroke-outline"><span class="mark"></span> Sobre mí</h3>
+        <p>Cómo trabajo contigo</p>
+      </div>
+
+      <div class="grid">
+        <div class="card span-8">
+          <div style="padding:20px">
+            <p style="margin:0; color:var(--muted); line-height:1.75">
+              Soy <strong>Raúl Vargas Zalazar</strong>, fundador de <strong>Pro Enhanced Nutrition</strong>.
+              Trabajo contigo con estructura, métricas y seguimiento para lograr recomposición corporal y rendimiento:
+              peso, estatura, tallas (por ejemplo cintura), fotos de progreso, desempeño y adherencia.
+              <br><br>
+              Sistema simple y efectivo: <strong>evaluación → plan de nutrición y entrenamiento → seguimiento → ajustes → resultado</strong>.
+              Te acompaño para que avances con claridad y seguridad.
+            </p>
+            <div class="tagrow">
+              <span class="tag">Fuerza</span>
+              <span class="tag">Hipertrofia</span>
+              <span class="tag">Pérdida de grasa</span>
+              <span class="tag">Nutrición</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card span-4">
+          <div style="padding:20px">
+            <div class="item">
+              <h4>Qué vas a notar</h4>
+              <p>Claridad, estructura y progreso real (sin improvisación).</p>
+            </div>
+            <div class="item" style="margin-top:10px">
+              <h4>¿Cómo medimos?</h4>
+              <p>Fuerza, RPE/RIR, medidas, tallas, peso y ajustes precisos según respuesta.</p>
+            </div>
+            <div class="item" style="margin-top:10px">
+              <h4>Objetivo</h4>
+              <p>Resultados sostenibles con rendimiento, salud y estética.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="section-title">
+        <h3 class="gold-stroke-outline"><span class="mark"></span> Servicios</h3>
+        <p>Elige tu objetivo y agenda por WhatsApp o correo.</p>
+      </div>
+
+      <div class="grid">
+        <div class="span-4">
+          <div class="service-card">
+            <div class="service-head">
+              <h4 class="service-title gold-stroke">Aumento de masa muscular</h4>
+              <div class="service-badge">Hipertrofia</div>
+            </div>
+            <p class="service-desc">Progresión + técnica + recuperación + nutrición para avanzar más rápido y con control.</p>
+
+            <div class="divider"></div>
+
+            <div class="service-sub">
+              <h5 class="gold-stroke"><strong>Aumento en tu musculatura</strong></h5>
+              <p>Buscaremos aumentar tu masa muscular (si es tu objetivo) mejorando estética, salud metabólica y rendimiento, evitando el error de “comer por comer” y subir más grasa que músculo.</p>
+            </div>
+
+            <div class="service-sub">
+              <h5 class="gold-stroke"><strong>Dopaje y antidopaje</strong></h5>
+              <p>Si por decisión personal usas esteroides anabólicos androgénicos, puedo guiarte en nutrición y entrenamiento aplicados al contexto, cuidando al máximo variables como perfil lipídico, triglicéridos y salud general.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="span-4">
+          <div class="service-card">
+            <div class="service-head">
+              <h4 class="service-title gold-stroke">Pérdida de grasa corporal</h4>
+              <div class="service-badge">Definición</div>
+            </div>
+            <p class="service-desc">Déficit inteligente sin destruir rendimiento: adherencia, hábitos y estrategia sostenible.</p>
+
+            <div class="divider"></div>
+
+            <div class="service-sub">
+              <h5 class="gold-stroke"><strong>Perder grasa corporal</strong></h5>
+              <p>Disminuimos tu porcentaje de grasa evitando extremos (como dejar de comer “porque sí”), minimizando deficiencias nutricionales y cuidando tu salud.</p>
+            </div>
+
+            <div class="service-sub">
+              <h5 class="gold-stroke"><strong>Rendimiento primero</strong></h5>
+              <p>Ajustes que respetan tu energía, sueño y entrenamiento para mantener desempeño mientras bajas grasa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="span-4">
+          <div class="service-card">
+            <div class="service-head">
+              <h4 class="service-title gold-stroke">Optimización de salud hormonal</h4>
+              <div class="service-badge">Salud</div>
+            </div>
+            <p class="service-desc">Nutrición + suplementación puntual orientada a energía, sueño y recuperación, según tu objetivo.</p>
+
+            <div class="divider"></div>
+
+            <div class="service-sub">
+              <h5 class="gold-stroke"><strong>Salud hormonal</strong></h5>
+              <p>Apoyo en contexto de SOP, hiperandrogenismo, endometriosis, miomatosis, hipotiroidismo, etc. (con enfoque en hábitos, nutrición y estrategia individual).</p>
+            </div>
+
+            <div class="service-sub">
+              <h5 class="gold-stroke"><strong>Suplementación con criterio</strong></h5>
+              <p>Solo lo necesario, con justificación y objetivos claros. Sin “pilas mágicas”.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="section-title">
+        <h3 class="gold-stroke-outline"><span class="mark"></span> Contacto</h3>
+        <p>WhatsApp · Instagram · Correo</p>
+      </div>
+
+      <div class="grid">
+        <div class="card span-6">
+          <div style="padding:20px">
+            <form class="form" onsubmit="sendMail(event)">
+              <input id="name" placeholder="Tu nombre" required />
+              <input id="email" type="email" placeholder="Tu correo" required />
+              <textarea id="msg" placeholder="Objetivo + experiencia + días de entrenamiento + tiempo disponible" required></textarea>
+              <button class="btn primary" type="submit">Enviar correo</button>
+              <div class="small">Para respuesta inmediata: WhatsApp.</div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card span-6">
+          <div style="padding:20px">
+            <div class="item">
+              <h4 class="gold-stroke">1) WhatsApp</h4>
+              <p><a class="mono" href="https://wa.me/5218132216529" target="_blank" rel="noopener">wa.me/5218132216529</a></p>
+            </div>
+
+            <div class="item" style="margin-top:10px">
+              <h4 class="gold-stroke">2) Instagram</h4>
+              <p><a class="mono" href="https://www.instagram.com/raulvargas_proehn" target="_blank" rel="noopener">@raulvargas_proehn</a></p>
+            </div>
+
+            <div class="item" style="margin-top:10px">
+              <h4 class="gold-stroke">3) Correo</h4>
+              <p><a class="mono" href="mailto:Pro.Enhanced.Nutrition@gmail.com">Pro.Enhanced.Nutrition@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>© <span id="year"></span> Pro Enhanced Nutrition — Raúl Vargas Zalazar</div>
+        <div class="mono">
+          <a href="https://wa.me/5218132216529" target="_blank" rel="noopener">WhatsApp</a>
+          ·
+          <a href="https://www.instagram.com/raulvargas_proehn" target="_blank" rel="noopener">Instagram</a>
+          ·
+          <a href="mailto:Pro.Enhanced.Nutrition@gmail.com">Correo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function sendMail(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const msg = document.getElementById("msg").value.trim();
+      const subject = encodeURIComponent("Contacto — Pro Enhanced Nutrition (" + name + ")");
+      const body = encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\n\nMensaje:\n${msg}`);
+      window.location.href = `mailto:Pro.Enhanced.Nutrition@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+  <!-- WhatsApp floating -->
+  <a class="wa-float" href="https://wa.me/5218132216529" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.89.756 5.707 2.192 8.19L0 32l7.61-2.145a15.94 15.94 0 0 0 8.39 2.33c8.837 0 16-7.164 16-16S24.837.396 16 .396zm0 29.09a13.02 13.02 0 0 1-6.62-1.81l-.474-.28-4.52 1.27 1.21-4.41-.31-.45A13.02 13.02 0 0 1 2.98 16.4c0-7.19 5.84-13.02 13.02-13.02 7.19 0 13.02 5.83 13.02 13.02 0 7.18-5.83 13.02-13.02 13.02z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram floating -->
+  <a class="ig-float" href="https://www.instagram.com/raulvargas_proehn" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zm4.25 3.25a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.75-.88a1.13 1.13 0 1 1-2.25 0 1.13 1.13 0 0 1 2.25 0z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
